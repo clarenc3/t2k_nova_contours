@@ -154,6 +154,8 @@ void plotboth() {
 
   // Make a NOvA TText
   TPaveText *novatext = new TPaveText(0.00, 0.55, 0.65, 0.95, "NDC");
+  novatext->SetFillColor(0);
+  novatext->SetFillStyle(0);
   novatext->AddText("NOvA results, 90%");
   ((TText*)novatext->GetListOfLines()->At(0))->SetTextSize(0.04);
   for (int i = 0; i < nnova; ++i) {
@@ -184,6 +186,8 @@ void plotboth() {
 
   // Make a T2K TText
   TPaveText *t2ktext = new TPaveText(0.65, 0.55, 0.95, 0.95, "NDC");
+  t2ktext->SetFillColor(0);
+  t2ktext->SetFillStyle(0);
   t2ktext->AddText("T2K results, 90%");
   ((TText*)t2ktext->GetListOfLines()->At(0))->SetTextSize(0.04);
   t2ktext->SetBorderSize(0);
