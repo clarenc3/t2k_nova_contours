@@ -1,0 +1,33 @@
+T2K contours as presented at Neutrino 2018.
+
+Note: 2D fits present contours where the dchisq value was computed relative the local minimum for the relevant hierarchy. In all cases normal hierarchy represents the best fit.
+
+t2k_appearance_fits.root:
+   app_wrc_nh_68_0: TGraph containing the 68% normal hierarchy contour for deltacp v sin^2(theta13) with reactor constraint applied.
+   app_wrc_nh_90_0: TGraph containing the 90% normal hierarchy contour for deltacp v sin^2(theta13) with reactor constraint applied.
+   app_wrc_nh_bf: Best fit marker for deltacp v sin^2(theta13) (normal hierarchy) with reactor constraint applied.
+   app_wrc_ih_68_0: TGraph containing the 68% inverted hierarchy contour for deltacp v sin^2(theta13) with reactor constraint applied.
+   app_wrc_ih_90_0: TGraph containing the 90% inverted hierarchy contour for deltacp v sin^2(theta13) with reactor constraint applied.
+   app_wrc_ih_bf: Best fit marker for deltacp v sin^2(theta13) (inverted hierarchy) with reactor constraint applied.
+
+   app_worc_nh_68_0: TGraph containing the 68% normal hierarchy contour for deltacp v sin^2(theta13) without reactor constraint applied.
+   app_worc_nh_90_0/1: TGraphs containing the 90% normal hierarchy contour for deltacp v sin^2(theta13) without reactor constraint applied.
+   app_worc_nh_bf: Best fit marker for deltacp v sin^2(theta13) (normal hierarchy) without reactor constraint applied.
+   app_worc_ih_68_0: TGraph containing the 68% inverted hierarchy contour for deltacp v sin^2(theta13) without reactor constraint applied.
+   app_worc_ih_90_0: TGraph containing the 90% inverted hierarchy contour for deltacp v sin^2(theta13) without reactor constraint applied.
+   app_worc_ih_bf: Best fit marker for deltacp v sin^2(theta13) (inverted hierarchy) without reactor constraint applied.
+
+t2k_atmospheric_fits.root:
+   atm_wrc_nh_68_0: TGraph containing the 68% normal hierarchy contour for dmsq32 v sin^2(theta23) with reactor constraint applied.
+   atm_wrc_nh_90_0: TGraph containing the 90% normal hierarchy contour for dmsq32 v sin^2(theta23) with reactor constraint applied.
+   atm_wrc_nh_bf: Best fit marker for dmsq32 v sin^2(theta23) (normal hierarchy) with reactor constraint applied.
+   atm_wrc_ih_68_0: TGraph containing the 68% inverted hierarchy contour for dmsq13 v sin^2(theta23) with reactor constraint applied.
+   atm_wrc_ih_90_0: TGraph containing the 90% inverted hierarchy contour for dmsq13 v sin^2(theta23) with reactor constraint applied.
+   atm_wrc_ih_bf: Best fit marker for dmsq13 v sin^2(theta23) (inverted hierarchy) with reactor constraint applied.
+   theta23_wrc_nh: TH1D containing global dchisq values for sin^2(theta23) in normal hierarchy with reactor constraint applied.
+   theta23_wrc_ih: TH1D containing global dchisq values for sin^2(theta23) in inverted hierarchy with reactor constraint applied.
+
+t2k_deltacp_fits.root:
+   deltacp_wrc_nh: TH1D containing global dchisq values for deltacp in normal hierarchy with reactor constraint applied.
+   deltacp_wrc_ih: TH1D containing global dchisq values for deltacp in inverted hierarchy with reactor constraint applied.
+
