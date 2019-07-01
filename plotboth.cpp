@@ -28,7 +28,7 @@ TGraph **GetT2K() {
   TFile *three = new TFile("t2k/T2KJointNuNuBarOscillation_Run17c_2016/sinsqth23Vsdmsq_Run17c_Data_react_nh.root","open");
   //TFile *three = new TFile("T2KJointNuNuBarOscillation_Run17c_2016/sinsqth23Vsdmsq_Run17c_Data_react_ih.root","open");
   TGraph *g3 = (TGraph*)three->Get("g90_valor_0");
-  g3->SetTitle("Apr 2017 PRD");
+  g3->SetTitle("Apr 2017 PRL");
 
   TFile *two = new TFile("t2k/t2kdata-numu-numubar-disap-2016/T2K_NuMuDissap-Run1_Run7_2016.root", "open");
   TGraph *g2 = (TGraph*)two->Get("NuMu_cont_2d_90_normal");
