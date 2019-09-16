@@ -208,6 +208,7 @@ void plotboth() {
     t2ktext->Draw("same");
     canv->Print("T2K_NOvA_results.gif+50");
   }
+  canv->Print("T2K_NOvA_results.gif+");
 
 }
 
