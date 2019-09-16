@@ -57,7 +57,7 @@ TGraph **GetIceCube() {
   //TGraph *g_one = new TGraph("icecube/icecube2014.csv");
   TGraph *g_two = new TGraph("icecube/icecube2017.csv");
   //g_one->SetMarkerColor(kBlue);
-  g_two->SetMarkerColor(kRed);
+  g_two->SetMarkerColor(kBlack);
 
   icecube[0]=g_two;
   //icecube[1]=g_two;
@@ -255,7 +255,7 @@ void plotlatest() {
   canv->SetRightMargin(0.04);
   canv->SetBottomMargin(0.11);
   canv->SetTopMargin(0.05);
-  canv->Print("All_results.gif");
+  //canv->Print("All_results.gif");
   TGaxis::SetMaxDigits(1);
 
   bool haveaxis = false;
@@ -272,7 +272,6 @@ void plotlatest() {
   sktext->SetBorderSize(0);
 
   for (int i = 0; i < nsk; ++i) {
-    std::cout << sk[i]->GetTitle() << std::endl;
     if (!haveaxis) {
       sk[i]->Draw("AP");
       //sk[i]->GetXaxis()->SetRangeUser(0.2, 0.80);
@@ -290,7 +289,7 @@ void plotlatest() {
     ((TText*)sktext->GetListOfLines()->At(i+1))->SetTextColor(sk[i]->GetMarkerColor());
     sk[i]->SetTitle("");
     sktext->Draw("same");
-    canv->Print("All_results.gif+50");
+    //canv->Print("All_results.gif+50");
   }
 
   // Make a SK TText
@@ -310,7 +309,7 @@ void plotlatest() {
     ((TText*)minostext->GetListOfLines()->At(i+1))->SetTextColor(minos[i]->GetMarkerColor());
     minos[i]->SetTitle("");
     minostext->Draw("same");
-    canv->Print("All_results.gif+50");
+    //canv->Print("All_results.gif+50");
   }
 
 
@@ -331,7 +330,7 @@ void plotlatest() {
     ((TText*)icecubetext->GetListOfLines()->At(i+1))->SetTextColor(icecube[i]->GetMarkerColor());
     icecube[i]->SetTitle("");
     icecubetext->Draw("same");
-    canv->Print("All_results.gif+50");
+    //canv->Print("All_results.gif+50");
   }
 
   // Make a NOvA TText
@@ -351,7 +350,7 @@ void plotlatest() {
     ((TText*)novatext->GetListOfLines()->At(i+1))->SetTextColor(nova[i]->GetMarkerColor());
     nova[i]->SetTitle("");
     novatext->Draw("same");
-    canv->Print("All_results.gif+50");
+    //canv->Print("All_results.gif+50");
   }
 
   // Make a T2K TText
@@ -376,11 +375,12 @@ void plotlatest() {
     ((TText*)t2ktext->GetListOfLines()->At(i+1))->SetTextColor(t2k[i]->GetMarkerColor());
     t2k[i]->SetTitle("");
     t2ktext->Draw("same");
-    canv->Print("All_results.gif+50");
+    //canv->Print("All_results.gif+50");
   }
 
 
 
-  canv->Print("All_results.gif++");
+  //canv->Print("All_results.gif++");
+  canv->Print("All_results.pdf");
 }
 
