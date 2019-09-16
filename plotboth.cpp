@@ -62,7 +62,7 @@ TGraph **GetT2K() {
   t2k[5]=g4;
   t2k[6]=g5;
 
-  for (int i = 0; i < 7; ++i) {
+  for (int i = 0; i < nt2k; ++i) {
     t2k[i]->SetMarkerSize(0.5);
     t2k[i]->SetMarkerStyle(20);
   }

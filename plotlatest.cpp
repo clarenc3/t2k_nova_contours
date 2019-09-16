@@ -14,26 +14,27 @@ const double xhi = 0.75;
 const double ylow = 0.5E-3;
 const double yhi = 5.0E-3;
 
-const int nt2k = 7;
-const int nnova = 5;
-const int nminos = 2;
-const int nicecube = 2;
-const int nsk = 3;
+const int nt2k = 1;
+const int nnova = 1;
+const int nminos = 1;
+const int nicecube = 1;
+const int nsk = 1;
 
 // in 1E-3 units
 TGraph **GetMINOS() {
   TGraph **minos = new TGraph*[nminos];
 
   // https://www-numi.fnal.gov/PublicInfo/plots/MINOS2014/MinosPlusT2K.png
-  TGraph *g_one = new TGraph("minos/minos2014.csv");
-  g_one->SetTitle("MINOS NuMI+atm 2014");
+  //TGraph *g_one = new TGraph("minos/minos2014.csv");
+  //g_one->SetTitle("MINOS NuMI+atm 2014");
   // https://www-numi.fnal.gov/PublicInfo/plots/MINOS2016/MINOSxx_NOvA_T2K_contours_compare.pdf
   TGraph *g_two = new TGraph("minos/minos2016.csv");
   g_two->SetTitle("MINOS/MINOS+ NuMI+atm 2016");
-  g_one->SetMarkerColor(kRed);
+  //g_one->SetMarkerColor(kRed);
   g_two->SetMarkerColor(kBlue);
-  minos[0] = g_one;
-  minos[1] = g_two;
+  //minos[0] = g_one;
+  minos[0] = g_two;
+  //minos[1] = g_two;
 
   for (int i = 0; i < nminos; ++i) {
     for (int j = 0; j < minos[i]->GetN(); ++j) {
@@ -53,13 +54,13 @@ TGraph **GetMINOS() {
 TGraph **GetIceCube() {
 
   TGraph **icecube = new TGraph*[nicecube];
-  TGraph *g_one = new TGraph("icecube/icecube2014.csv");
+  //TGraph *g_one = new TGraph("icecube/icecube2014.csv");
   TGraph *g_two = new TGraph("icecube/icecube2017.csv");
-  g_one->SetMarkerColor(kBlue);
+  //g_one->SetMarkerColor(kBlue);
   g_two->SetMarkerColor(kRed);
 
-  icecube[0]=g_one;
-  icecube[1]=g_two;
+  icecube[0]=g_two;
+  //icecube[1]=g_two;
   for (int i = 0; i < nicecube; ++i) {
     for (int j = 0; j < icecube[i]->GetN(); ++j) {
       icecube[i]->SetPoint(j, icecube[i]->GetX()[j], icecube[i]->GetY()[j]*1E-3);
@@ -77,21 +78,22 @@ TGraph **GetIceCube() {
 TGraph **GetSK() {
   TGraph **sk = new TGraph*[nsk];
   // https://arxiv.org/pdf/1002.3471.pdf
-  TGraph *g_one = new TGraph("superk/superk_2010.csv");
+  //TGraph *g_one = new TGraph("superk/superk_2010.csv");
   // https://arxiv.org/pdf/1710.09126.pdf
-  TGraph *g_two = new TGraph("superk/superk_prd_2018_extconst.csv");
+  //TGraph *g_two = new TGraph("superk/superk_prd_2018_extconst.csv");
   // https://arxiv.org/pdf/1901.03230.pdf
   TGraph *g_three = new TGraph("superk/superk_2019.csv");
-  g_one->SetTitle("SK I+II+III 2010");
-  g_one->SetMarkerColor(kBlack);
-  g_two->SetTitle("SK IV 2017+T2K #theta_{13}");
-  g_two->SetMarkerColor(kBlue);
+  //g_one->SetTitle("SK I+II+III 2010");
+  //g_one->SetMarkerColor(kBlack);
+  //g_two->SetTitle("SK IV 2017+T2K #theta_{13}");
+  //g_two->SetMarkerColor(kBlue);
   g_three->SetTitle("SK IV 2019");
   g_three->SetMarkerColor(kRed);
 
-  sk[0] = g_one;
-  sk[1] = g_two;
-  sk[2] = g_three;
+  //sk[0] = g_one;
+  sk[0] = g_three;
+  //sk[1] = g_two;
+  //sk[2] = g_three;
   for (int i = 0; i < nsk; ++i) {
     sk[i]->SetLineColor(sk[i]->GetMarkerColor());
     sk[i]->SetMarkerStyle(23);
@@ -103,6 +105,7 @@ TGraph **GetSK() {
 TGraph **GetT2K() {
   // ****************************
   // Get the T2K plots
+  /*
   TGraph *garg = new TGraph("t2k/T2K-numuDisappearanceData-2013/handscan.csv");
   for (int i = 0; i < garg->GetN(); ++i) {
     garg->SetPoint(i, garg->GetX()[i], garg->GetY()[i]*1.E-3);
@@ -133,6 +136,7 @@ TGraph **GetT2K() {
   //TFile *four = new TFile("T2KJointNuNuBarOscillation_Run18_2017/sinsqth23Vsdmsq_Run18_Data_react_ih.root", "open");
   TGraph *g4 = (TGraph*)four->Get("g90_0");
   g4->SetTitle("Oct 2018 PRL");
+  */
 
 
   TFile *five = new TFile("t2k/t2k_neutrino_2018_fits/t2k_atmospheric_fits.root");
@@ -143,6 +147,7 @@ TGraph **GetT2K() {
   // ****************************
 
   TGraph **t2k = new TGraph*[nt2k];
+  /*
   t2k[0]=garg;
   t2k[1]=g6;
   t2k[2]=g3;
@@ -150,6 +155,8 @@ TGraph **GetT2K() {
   t2k[4]=g7;
   t2k[5]=g4;
   t2k[6]=g5;
+  */
+  t2k[0]=g5;
 
   for (int i = 0; i < nt2k; ++i) {
     t2k[i]->SetMarkerSize(0.5);
@@ -165,12 +172,14 @@ TGraph **GetT2K() {
      t2k[6]->SetMarkerColor(kYellow-3);
      */
   t2k[0]->SetMarkerColor(kRed+3);
+  /*
   t2k[1]->SetMarkerColor(kRed);
   t2k[2]->SetMarkerColor(kRed-6);
   t2k[3]->SetMarkerColor(kPink-8);
   t2k[4]->SetMarkerColor(kMagenta+1);
   t2k[5]->SetMarkerColor(kMagenta-6);
   t2k[6]->SetMarkerColor(kMagenta-9);
+  */
 
   return t2k;
 }
@@ -187,17 +196,22 @@ TGraph **GetNOvA() {
   TGraph *gseven = new TGraph("nova/latest.csv");
 
   TGraph **nova = new TGraph*[nnova];
+  /*
   nova[0] = gone;
   nova[1] = gthree;
   nova[2] = gfive;
   nova[3] = gsix;
   nova[4] = gseven;
+  */
+  nova[0] = gseven;
 
+  /*
   nova[0]->SetTitle("Mar 2016 PRD");
   nova[1]->SetTitle("Apr 2017 PRL");
   nova[2]->SetTitle("Jan 2018 W&C");
   nova[3]->SetTitle("Jun 2018 Neutrino");
-  nova[4]->SetTitle("Jun 2019 arxiv");
+  */
+  nova[0]->SetTitle("Jun 2019 arxiv");
 
   // Set y-axis to 1E-3
   for (int i = 0; i < nnova; ++i) {
@@ -216,17 +230,19 @@ TGraph **GetNOvA() {
      nova[4]->SetMarkerColor(kTeal-5);
      */
   nova[0]->SetMarkerColor(kGreen+3);
+  /*
   nova[1]->SetMarkerColor(kGreen-3);
   nova[2]->SetMarkerColor(kSpring-4);
   nova[3]->SetMarkerColor(kYellow+2);
   nova[4]->SetMarkerColor(kYellow-6);
+  */
 
   // Could sort to nearest neighbour?
 
   return nova;
 }
 
-void plotall() {
+void plotlatest() {
 
   TGraph **t2k = GetT2K();
   TGraph **nova = GetNOvA();
